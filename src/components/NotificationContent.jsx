@@ -205,15 +205,19 @@ function NotificationContent({ toggleValue }) {
         })
       )}
 
-      <Grid container justifyContent="flex-end">
-        <Grid item>
-          <Pagination
-            count={totalPages}
-            page={page}
-            onChange={handlePageChange}
-          />
+      {pageData.length > 0 ? (
+        <Grid container justifyContent="flex-end">
+          <Grid item>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 }
