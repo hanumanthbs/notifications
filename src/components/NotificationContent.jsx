@@ -70,12 +70,14 @@ function NotificationContent({ toggleValue }) {
                   <Card
                     key={i}
                     elevation={3}
-                    style={{
+                    sx={{
                       background: "#FFFFFF",
                       boxShadow:
                         "0px 8px 28px -6px rgba(24, 39, 75, 0.12), 0px 18px 88px -4px rgba(24, 39, 75, 0.14)",
                       borderRadius: "8px",
                       margin: "20px",
+                      maxHeight: 400,
+                      overflow: "auto",
                     }}
                   >
                     <CardHeader
@@ -84,7 +86,7 @@ function NotificationContent({ toggleValue }) {
                           onClick={() => updateData(true, i)}
                           sx={{ padding: 0 }}
                         >
-                          <CloseIcon sx={{ color: "#FF9090", fontSize: 40 }} />
+                          <CloseIcon sx={{ color: "#FF9090", fontSize: 25 }} />
                         </IconButton>
                       }
                     />
@@ -96,7 +98,7 @@ function NotificationContent({ toggleValue }) {
                             component="div"
                             style={{
                               fontWeight: 700,
-                              fontSize: "20px",
+                              fontSize: "15px",
                               textAlign: "justify",
                             }}
                           >
@@ -107,25 +109,28 @@ function NotificationContent({ toggleValue }) {
                         <Grid item xs={12}>
                           <Typography
                             component="div"
-                            style={{
-                              textAlign: "justify",
-                            }}
+                            style={{ fontSize: "15px", textAlign: "justify" }}
                           >
                             {obj.description}
                           </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                          {obj.publishedAt
-                            ? moment(obj.publishedAt).format(
-                                "dddd, DD MMM YYYY HH:mm [GMT]"
-                              )
-                            : obj.publishedAt}
+                          <Typography
+                            variant="body2"
+                            sx={{ color: "#B9B9B9", fontSize: 12 }}
+                          >
+                            {obj.publishedAt
+                              ? moment(obj.publishedAt).format(
+                                  "dddd, DD MMM YYYY HH:mm [GMT]"
+                                )
+                              : obj.publishedAt}
+                          </Typography>
                         </Grid>
                         <Grid item xs={12}>
                           <img
                             src={obj.urlToImage}
                             alt="pic"
-                            style={{ width: "100%" }}
+                            style={{ width: "100%", height: "150px" }}
                           />
                         </Grid>
                       </Grid>
@@ -165,14 +170,18 @@ function NotificationContent({ toggleValue }) {
                       <Typography
                         variant="subtitle2"
                         component="div"
-                        style={{ fontWeight: 700, fontSize: "20px" }}
+                        style={{ fontWeight: 700, fontSize: "15px" }}
                       >
                         {obj.title}
                       </Typography>
-                      <Typography>{obj.description}</Typography>
+                      <Typography
+                        style={{ fontSize: "15px", textAlign: "justify" }}
+                      >
+                        {obj.description}
+                      </Typography>
                       <Typography
                         variant="body2"
-                        sx={{ color: "#B9B9B9", fontSize: 16 }}
+                        sx={{ color: "#B9B9B9", fontSize: 12 }}
                       >
                         {obj.publishedAt
                           ? moment(obj.publishedAt).format(
