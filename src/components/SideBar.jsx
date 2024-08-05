@@ -17,7 +17,7 @@ const sideLayout = {
     "0px 8px 28px -6px rgba(24, 39, 75, 0.12), 0px 18px 88px -4px rgba(24, 39, 75, 0.14)",
   borderRadius: "0px 32px 32px 32px",
   padding: { md: 8, xs: 2 },
-  height: { md: "771px", xs: "900px" },
+  height: { md: "771px", xs: "450px" },
 };
 
 function SideBar({ toggleValue, handleToggle, isFeedback, setIsFeedback }) {
